@@ -1,0 +1,5 @@
+---
+dependencies: 
+  - role: yuferov.ansible_docker_role
+ 
+...

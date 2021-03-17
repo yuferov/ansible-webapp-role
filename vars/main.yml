@@ -1,0 +1,10 @@
+---
+#variables for webapp deployment role
+image_name: yuferov/ci-cd-exam
+image_tag: latest
+
+network: webapp-network
+server_list:
+  - 1
+  - 2
+  - 3

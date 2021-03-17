@@ -1,0 +1,27 @@
+---
+    - name: Login to docker
+      docker_login:
+        username: "{{ username }}"
+        password: "{{ password }}"
+    - name: pull docker image
+      docker_image:
+        source: pull
+        name: "{{ image_name }}"
+        tag: "{{ image_tag }}" 
+    - name: Create a network for webapps and balancer
+      docker_network:
+        name: "{{ network }}"
+    - name: Start 4 containers on the same network
+      docker_container:
+        name: "container{{ item }}"
+        recreate: yes
+        image: "{{ image_name }}"
+        hostname: "container{{ item }}"
+        networks:
+          - name: "{{ network }}" 
+            aliases:
+              - "{{ server_list }}"
+      with_list: "{{ server_list }}"
+        
+...
+
