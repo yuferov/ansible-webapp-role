@@ -1,5 +1,6 @@
 ---
 #variables for webapp deployment role
+username: yuferov
 image_name: yuferov/ci-cd-exam
 image_tag: latest
 
